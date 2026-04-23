@@ -373,7 +373,7 @@ export default function App() {
     
     setOrderedIds(prev => [...prev, valve.id]);
     const newPO = {
-      id: `PO-${Math.floor(1000 + Math.random() * 9000)}`,
+      id: `PO-${Date.now()}-${Math.random().toString(36).substr(2, 5)}`,
       serialNumber: valve.serialNumber,
       vendor: 'Industrial Valvco',
       orderDate: today.toISOString().split('T')[0],
@@ -404,7 +404,7 @@ export default function App() {
   const handleDeploy = (invItem) => {
     if (invItem.quantity <= 0) return;
 
-    const newId = `V-${Math.floor(100 + Math.random() * 900)}`;
+    const newId = `V-DEP-${Date.now()}-${Math.random().toString(36).substr(2, 5)}`;
     const newValve = {
       id: newId,
       serialNumber: `SN-NEW-${Math.floor(1000 + Math.random() * 9000)}`,
